@@ -174,7 +174,7 @@ class TodoControllerTest {
     @Test
     void testDelete() {
         // Save an element, which we can delete later.
-        final Todo todo = new Todo("summary", "description");
+        final Todo todo = new Todo( "summary", "description");
         final Todo createdTodo = gson.fromJson(doPostRequest(todo), Todo.class);
 
         final List<Todo> todosBeforeDelete = parseTodos(doGetRequest());
@@ -182,6 +182,7 @@ class TodoControllerTest {
         // Execute delete request
         doDeleteRequest(createdTodo.getId());
 
+        System.out.println(createdTodo.getId());
         final List<Todo> todosAfterDelete = parseTodos(doGetRequest());
 
         assertTrue(todosBeforeDelete.contains(createdTodo));
