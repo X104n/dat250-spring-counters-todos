@@ -208,8 +208,8 @@ class TodoControllerTest {
         String result = doGetRequest(todoId);
 
         // Expect a appropriate result message.
-//        assertThat(result,
-//            containsString("\"message\":\"" + String.format(TODO_WITH_THE_ID_X_NOT_FOUND, todoId)));
+        assertThat(result,
+            containsString("\"message\":\"" + String.format(TODO_WITH_THE_ID_X_NOT_FOUND, todoId)));
 
         // Execute delete request
         result = doDeleteRequest(todoId);
