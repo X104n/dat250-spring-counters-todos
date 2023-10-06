@@ -1,6 +1,8 @@
 package no.hvl.dat250.rest.todos;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +36,7 @@ public class TodoController {
                 return todo;
             }
         }
-        return String.format(TODO_WITH_THE_ID_X_NOT_FOUND, id);
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format(TODO_WITH_THE_ID_X_NOT_FOUND, id));
     }
 
     @PutMapping("/todos/{id}")
@@ -48,7 +50,7 @@ public class TodoController {
                 return todo;
             }
         }
-        return String.format(TODO_WITH_THE_ID_X_NOT_FOUND, id);
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format(TODO_WITH_THE_ID_X_NOT_FOUND, id));
     }
 
     @DeleteMapping("/todos/{id}")
