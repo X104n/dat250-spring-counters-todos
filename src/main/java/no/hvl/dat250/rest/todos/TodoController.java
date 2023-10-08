@@ -21,11 +21,8 @@ public class TodoController {
     }
 
     @PostMapping("/todos")
-    public Todo createTodo(@RequestBody String sum, @RequestBody String desc) {
-        Todo todo = new Todo();
+    public Todo createTodo(@RequestBody Todo todo) {
         todo.setId(++idCounter);
-        todo.setSummary(sum);
-        todo.setDescription(desc);
         todos.add(todo);
         return todo;
     }
